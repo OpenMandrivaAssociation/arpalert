@@ -1,6 +1,6 @@
 Summary:	A monitor ethernet networks
 Name:		arpalert
-Version:	2.0.7
+Version:	2.0.8
 Release:	%mkrel 1
 License:	GPL
 Group:		Monitoring
@@ -50,6 +50,9 @@ install -d %{buildroot}/var/run/%{name}
 install -d %{buildroot}%{_localstatedir}/%{name}
 
 install -m0755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
+
+# cleanup
+rm -f %{buildroot}%{_includedir}/arpalert.h
 
 %pre
 %_pre_useradd %{name} %{_localstatedir}/%{name} /bin/sh
