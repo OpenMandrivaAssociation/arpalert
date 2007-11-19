@@ -1,12 +1,13 @@
 Summary:	A monitor ethernet networks
 Name:		arpalert
-Version:	2.0.8
+Version:	2.0.9
 Release:	%mkrel 1
 License:	GPL
 Group:		Monitoring
 URL:		http://www.arpalert.org/
 Source0:	http://www.arpalert.org/src/%{name}-%{version}.tar.gz
 Source1:	arpalert.init
+Patch0:		arpalert-optflags.diff
 BuildRequires:	libpcap-devel
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
@@ -27,11 +28,12 @@ and at signals SIGTERM, SIGINT, SIGQUIT and SIGABRT (arpalert stops itself).
 %prep
 
 %setup -q
+%patch0 -p0
 
 %build
+%serverbuild
 
-
-%configure \
+%configure2_5x \
     --localstatedir=/var
 
 perl -pi -e "s|^lock_dir.*|lock_dir=/var/run/%{name}|g" Makefile
