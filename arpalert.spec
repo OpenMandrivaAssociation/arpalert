@@ -13,6 +13,7 @@ Requires(post): rpm-helper
 Requires(preun): rpm-helper
 Requires(pre): rpm-helper
 Requires(postun): rpm-helper
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 This software is used for monitoring ethernet networks. It listens on a network
