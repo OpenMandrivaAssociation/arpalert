@@ -49,7 +49,7 @@ rm -rf %{buildroot}
 install -d %{buildroot}%{_initrddir}
 install -d %{buildroot}/var/log/%{name}
 install -d %{buildroot}/var/run/%{name}
-install -d %{buildroot}%{_localstatedir}/%{name}
+install -d %{buildroot}%{_localstatedir}/lib/%{name}
 
 install -m0755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
 
@@ -57,7 +57,7 @@ install -m0755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
 rm -f %{buildroot}%{_includedir}/arpalert.h
 
 %pre
-%_pre_useradd %{name} %{_localstatedir}/%{name} /bin/sh
+%_pre_useradd %{name} %{_localstatedir}/lib/%{name} /bin/sh
 
 %post
 %_post_service %name
@@ -81,4 +81,4 @@ rm -rf %{buildroot}
 %{_mandir}/man8/arpalert.8*
 %dir %attr(0755,%{name},%{name}) /var/log/%{name}
 %dir %attr(0755,%{name},%{name}) /var/run/%{name}
-%dir %attr(0755,%{name},%{name}) %{_localstatedir}/%{name}
+%dir %attr(0755,%{name},%{name}) %{_localstatedir}/lib/%{name}
