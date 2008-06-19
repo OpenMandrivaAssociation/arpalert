@@ -1,7 +1,7 @@
 Summary:	A monitor ethernet networks
 Name:		arpalert
 Version:	2.0.9
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL
 Group:		Monitoring
 URL:		http://www.arpalert.org/
