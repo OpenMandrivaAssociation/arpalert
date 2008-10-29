@@ -1,7 +1,7 @@
 Summary:	A monitor ethernet networks
 Name:		arpalert
 Version:	2.0.9
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
 Group:		Monitoring
 URL:		http://www.arpalert.org/
@@ -13,7 +13,7 @@ Requires(post): rpm-helper
 Requires(preun): rpm-helper
 Requires(pre): rpm-helper
 Requires(postun): rpm-helper
-BuildRoot:	%{_tmppath}/%{name}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This software is used for monitoring ethernet networks. It listens on a network
