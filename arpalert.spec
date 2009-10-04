@@ -8,6 +8,7 @@ URL:		http://www.arpalert.org/
 Source0:	http://www.arpalert.org/src/%{name}-%{version}.tar.gz
 Source1:	arpalert.init
 Patch0:		arpalert-optflags.diff
+Patch1:		arpalert-2.0.9-format_not_a_string_literal_and_no_format_arguments.diff
 BuildRequires:	libpcap-devel
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
@@ -29,6 +30,7 @@ and at signals SIGTERM, SIGINT, SIGQUIT and SIGABRT (arpalert stops itself).
 
 %setup -q
 %patch0 -p0
+%patch1 -p0
 
 %build
 %serverbuild
