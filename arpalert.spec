@@ -1,18 +1,17 @@
 Summary:	A monitor ethernet networks
 Name:		arpalert
-Version:	2.0.9
-Release:	%mkrel 5
-License:	GPL
+Version:	2.0.11
+Release:	%mkrel 1
+License:	GPLv2
 Group:		Monitoring
 URL:		http://www.arpalert.org/
 Source0:	http://www.arpalert.org/src/%{name}-%{version}.tar.gz
 Source1:	arpalert.init
-Patch0:		arpalert-optflags.diff
-Patch1:		arpalert-2.0.9-format_not_a_string_literal_and_no_format_arguments.diff
+Patch0:		arpalert-2.0.9-fix-str-fmt.diff
 BuildRequires:	libpcap-devel
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
-Requires(pre): rpm-helper
+Requires(pre):	rpm-helper
 Requires(postun): rpm-helper
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -30,17 +29,14 @@ and at signals SIGTERM, SIGINT, SIGQUIT and SIGABRT (arpalert stops itself).
 
 %setup -q
 %patch0 -p0
-%patch1 -p0
 
 %build
 %serverbuild
-
 %configure2_5x \
     --localstatedir=/var
 
 perl -pi -e "s|^lock_dir.*|lock_dir=/var/run/%{name}|g" Makefile
 perl -pi -e "s|^log_dir.*|log_dir=/var/log/%{name}|g" Makefile
-
 %make
 
 %install
