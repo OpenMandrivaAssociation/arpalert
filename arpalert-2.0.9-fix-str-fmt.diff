@@ -1,0 +1,11 @@
+--- log.c	2007-11-17 15:26:14.000000000 +0100
++++ log.c.oden	2009-10-04 19:04:27.000000000 +0200
+@@ -119,7 +119,7 @@ void logmsg(int priority, const char *fm
+ 	#ifdef USE_SYSLOG
+ 	if(config[CF_USESYSLOG].valeur.integer == TRUE &&
+ 	   syslog_initialized == TRUE){
+-		syslog(priority, log_msg); 
++		syslog(priority, "%s", log_msg);
+ 	}
+ 	#endif
+ 
