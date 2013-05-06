@@ -1,6 +1,6 @@
 Summary:	A monitor ethernet networks
 Name:		arpalert
-Version:	2.0.11
+Version:	2.0.12
 Release:	%mkrel 1
 License:	GPLv2
 Group:		Monitoring
@@ -13,7 +13,6 @@ Requires(post): rpm-helper
 Requires(preun): rpm-helper
 Requires(pre):	rpm-helper
 Requires(postun): rpm-helper
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This software is used for monitoring ethernet networks. It listens on a network
@@ -40,8 +39,6 @@ perl -pi -e "s|^log_dir.*|log_dir=/var/log/%{name}|g" Makefile
 %make
 
 %install
-rm -rf %{buildroot}
-
 %makeinstall_std
 
 install -d %{buildroot}%{_initrddir}
@@ -66,11 +63,7 @@ rm -f %{buildroot}%{_includedir}/arpalert.h
 %postun
 %_postun_userdel %{name}
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %doc CHANGES COPYING README
 %{_initrddir}/arpalert
 %dir %{_sysconfdir}/arpalert

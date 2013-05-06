@@ -1,2 +1,4 @@
+removed_sources:
+  arpalert-2.0.11.tar.gz: 9fc4f278f7b0bf9736ec0e5bd1dc4fd214f83d51
 sources:
-  "arpalert-2.0.11.tar.gz": 9fc4f278f7b0bf9736ec0e5bd1dc4fd214f83d51
+  arpalert-2.0.12.tar.gz: 60d10080daef9b885ea17ecd6130e8ad73aa35ac
