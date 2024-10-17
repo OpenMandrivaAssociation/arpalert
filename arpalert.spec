@@ -4,7 +4,7 @@ Version:	2.0.12
 Release:	2
 License:	GPLv2
 Group:		Monitoring
-URL:		http://www.arpalert.org/
+URL:		https://www.arpalert.org/
 Source0:	http://www.arpalert.org/src/%{name}-%{version}.tar.gz
 Source1:	arpalert.init
 Patch0:		arpalert-2.0.9-fix-str-fmt.diff
